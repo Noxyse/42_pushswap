@@ -32,9 +32,9 @@ int	compute_disorder(int *a, int nb_arg)
 		}
 		i++;
 	}
-	if (mistakes < (total_pairs / 5) || total_pairs == 0)
+	if (mistakes * 5 < total_pairs || total_pairs == 0)
 		return (1);
-	else if ((mistakes >= (total_pairs / 2)))
+	else if ((mistakes * 2 >= total_pairs))
 		return (3);
 	return (2);
 }
