@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute_disorder.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/26 12:33:31 by celgremy          #+#    #+#             */
-/*   Updated: 2026/04/26 14:47:20 by celgremy         ###   ########.fr       */
+/*   Created: 2026/04/26 14:51:15 by celgremy          #+#    #+#             */
+/*   Updated: 2026/04/26 14:58:10 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	compute_disorder(int *a, int nb_arg)
-{
-	int	mistakes;
-	int	total_pairs;
-	int	i;
-	int	j;
+#include "ft_push_swap.h"
 
-	mistakes = 0;
-	total_pairs = 0;
-	i = 0;
-	while (i < nb_arg - 1)
+int	main(int argc, char **argv)
+{
+	int	*stack_a;
+
+	if (argc < 2)
 	{
-		j = i + 1;
-		while (j < nb_arg - 1)
-		{
-			total_pairs += 1;
-			if (a[i] > a[j])
-				mistakes += 1;
-			j++;
-		}
-		i++;
+		ft_printf("Missing stack");
+		return (0);
 	}
-	if (mistakes < (total_pairs / 5) || total_pairs == 0)
-		return (1);
-	else if ((mistakes >= (total_pairs / 2)))
-		return (3);
-	return (2);
+	stack_a = argv;
+	ft_printf("Before pushswap : [ %d ]\n", stack_a);
+	ft_push_swap(stack_a);
+	ft_printf("After pushswap : [ %d ]\n", stack_a);
+	return (0);
 }
