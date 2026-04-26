@@ -6,24 +6,37 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:23:21 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/26 12:37:31 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/26 14:55:59 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	sa(int *stack_a)
-{
-	int	tmp;
+#include "push_swap.h"
 
-	tmp = stack_a[0];
-	stack_a[0] = stack_a[1];
-	stack_a[1] = tmp;
+void	sa(t_stack *stack_a)
+{
+	void	*tmp;
+
+	if (!stack_a || !stack_a->first || !stack_a->first->next)
+		return ;
+	tmp = stack_a->first->content;
+	stack_a->first->content = stack_a->first->next->content;
+	stack_a->first->next->content = tmp;
 }
 
-void	sb(int *stack_b)
+void	sb(t_stack *stack_b)
 {
-	int	tmp;
+	void	*tmp;
 
-	tmp = stack_b[0];
-	stack_b[0] = stack_b[1];
-	stack_b[1] = tmp;
+	if (!stack_b || !stack_b->first || !stack_b->first->next)
+		return ;
+	tmp = stack_b->first->content;
+	stack_b->first->content = stack_b->first->next->content;
+	stack_b->first->next->content = tmp;
 }
+
+void	ss(t_stack *stack_a, t_stack *stack_b)
+{
+	sa(stack_a);
+	sb(stack_b);
+}
+
