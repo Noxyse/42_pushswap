@@ -15,13 +15,19 @@
 int	main(int argc, char **argv)
 {
 	int	*stack_a;
-
+	int	i;
+	
 	if (argc < 2)
 	{
 		ft_printf("Missing stack");
 		return (0);
 	}
-	stack_a = argv;
+	i = 1;
+	while (i < argc)
+	{
+		stack_a[i] = (int)argv[i];
+		i++;
+	}
 	ft_printf("Before pushswap : [ %d ]\n", stack_a);
 	ft_push_swap(stack_a);
 	ft_printf("After pushswap : [ %d ]\n", stack_a);
