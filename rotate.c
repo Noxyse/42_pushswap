@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:04:53 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 13:10:04 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 13:12:43 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ra(t_stack *stack_a)
 {
-	void	*tmp;
+	t_node	*tmp;
 
 	if (!stack_a)
 		return ;
-	tmp = stack_a->first->content;
+	tmp = stack_a->head;
 	ft_lstdelone(stack_a->first);
 	ft_lstadd_back(*stack_a, tmp);
 }
