@@ -6,11 +6,11 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:23:21 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/26 14:55:59 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 09:49:56 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_push_swap.h"
 
 void	sa(t_stack *stack_a)
 {
@@ -40,3 +40,35 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 	sb(stack_b);
 }
 
+void	pa(t_stack *stack_a, t_stack *stack_b)
+{
+	void	*tmp;
+
+	if (!stack_a || !stack_b || !stack_a->first || !stack_b->first)
+		return ;
+	tmp = stack_b->first->content;
+	ft_lstdelone(stack_b->first);
+	ft_lstadd_front(*stack_a, ft_lstnew(tmp));
+}
+
+void	pb(t_stack *stack_a, t_stack *stack_b)
+{
+	void	*tmp;
+
+	if (!stack_a || !stack_b || !stack_a->first || !stack_b->first)
+		return ;
+	tmp = stack_a->first->content;
+	ft_lstdelone(stack_a->first);
+	ft_lstadd_front(*stack_b, ft_lstnew(tmp));
+}
+
+void	ra(t_stack *stack_a)
+{
+	void	*tmp;
+
+	if (!stack_a)
+		return ;
+	tmp = stack_a->first->content;
+	ft_lstdelone(stack_a->first);
+	ft_lstadd_back(*stack_a, tmp);
+}
