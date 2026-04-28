@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 09:50:42 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 10:37:19 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 10:38:18 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	stackadd_front(t_node **stack, t_node *new)
 void	stackadd_back(t_node **stack, t_node *new)
 {
 	t_node	*tmp;
-	
+
 	if (!new)
 		return ;
 	if (!*stack)
