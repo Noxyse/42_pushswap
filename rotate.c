@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules2.c                                           :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:04:53 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 11:32:04 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 13:29:34 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,26 @@
 
 void	ra(t_stack *stack_a)
 {
-	void	*tmp;
+	t_node	*tmp;
 
-	if (!stack_a)
+	if (!stack_a || !stack_a->head)
 		return ;
-	tmp = stack_a->first->content;
-	ft_lstdelone(stack_a->first);
-	ft_lstadd_back(*stack_a, tmp);
+	tmp = remove_head(&stack_a->head);
+	stackadd_back(&stack_a->head, tmp);
+}
+
+void	rb(t_stack *stack_b)
+{
+	t_node	*tmp;
+
+	if (!stack_b || !stack_b->head)
+		return ;
+	tmp = remove_head(&stack_b->head);
+	stackadd_back(&stack_b->head, tmp);
+}
+
+void	rr(t_stack *stack_a, t_stack *stack_b)
+{
+	ra(stack_a);
+	rb(stack_b);
 }
