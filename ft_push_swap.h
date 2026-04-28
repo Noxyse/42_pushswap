@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 11:54:34 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 12:50:49 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	t_node	*first;
-	t_node	*last;
+	t_node	*head;
+	t_node	*tail;
 	int		size;
 }			t_stack;
 
