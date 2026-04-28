@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 13:09:05 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 13:09:37 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 14:05:16 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*tmp;
-
 
 	if (!stack_a || !stack_b || !stack_b->head)
 		return ;
