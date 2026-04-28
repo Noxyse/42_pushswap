@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 11:47:43 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 11:54:34 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_node
 {
-	int			*content;
+	void			*content;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
