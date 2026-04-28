@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:13:47 by celgremy          #+#    #+#             */
-/*   Updated: 2026/04/28 16:42:29 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/04/28 17:41:48 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,35 @@ int	ft_find_min_pos(t_stack *a)
 		i++;
 	}
 	return (index_min);
+}
+
+void	ft_sort_three_node(t_stack **a)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	if (ft_lstsize(*a) != 3)
+		return ;
+	first = (*a)->content;
+	second = (*a)->next->content;
+	third = (*a)->next->next->content;
+	if (first > second && second < third && first < third)
+		sa(a);
+	else if (first > second && second > third && first > third)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (first > second && second < third && first > third)
+		ra(a);
+	else if (first < second && second > third && first < third)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first < second && second > third && first > third)
+		rra(a);
 }
 
 void	ft_simple_algo(t_stack **a, t_stack **b, int *error, int size)
