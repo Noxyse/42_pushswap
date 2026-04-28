@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:04:53 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 13:12:43 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 13:21:57 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ra(t_stack *stack_a)
 
 	if (!stack_a)
 		return ;
-	tmp = stack_a->head;
-	ft_lstdelone(stack_a->first);
-	ft_lstadd_back(*stack_a, tmp);
+	tmp = remove_head(&stack_a->head);
+	stackadd_back(&stack_a->head, tmp);
 }
