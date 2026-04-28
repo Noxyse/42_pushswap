@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   compute_disorder.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celgremy <celgremy@student.42belgium.be>   +#+  +:+       +#+        */
+/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:33:31 by celgremy          #+#    #+#             */
-/*   Updated: 2026/04/26 18:59:51 by celgremy         ###   #######belgium.be */
+/*   Updated: 2026/04/28 16:13:41 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	compute_disorder(int *a, int nb_arg)
+int	ft_compute_disorder(int *a, int nb_arg)
 {
 	unsigned long	mistakes;
 	unsigned long	total_pairs;

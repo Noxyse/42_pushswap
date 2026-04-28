@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:51:15 by celgremy          #+#    #+#             */
-/*   Updated: 2026/04/26 15:05:19 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/04/28 16:37:58 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	int	*stack_a;
-	int	i;
-	
+	t_stack	*stack_a;
+	int		i;
+
 	if (argc < 2)
 	{
 		ft_printf("Missing stack");
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_printf("Before pushswap : [ %d ]\n", stack_a);
-	ft_push_swap(stack_a);
+	ft_push_swap(stack_a, stack_b, error);
 	ft_printf("After pushswap : [ %d ]\n", stack_a);
 	return (0);
 }
