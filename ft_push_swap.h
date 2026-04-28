@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 11:32:00 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 11:47:43 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b);
 
 t_node	*stacknew(void *content);
 t_node	*stacklast(t_node *stack);
+t_node	*remove_head(t_node **stack);
 void	stackdelone(t_node *stack, void (*del)(void *));
 void	stackadd_front(t_node **stack, t_node *new);
 void	stackadd_back(t_node **stack, t_node *new);
