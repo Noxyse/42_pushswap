@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:23:21 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 12:57:08 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/28 13:05:08 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,24 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*tmp;
-	t_stack	size;
+
 
 	if (!stack_a || !stack_b || !stack_a->head || !stack_b->head)
 		return ;
 	tmp = remove_head(&stack_b->head);
 	stackadd_front(&stack_a->head, tmp);
+	stack_a->size++;
+	stack_b->size--;
 }
 
 void	pb(t_stack *stack_a, t_stack *stack_b)
 {
-	void	*tmp;
+	t_node	*tmp;
 
 	if (!stack_a || !stack_b || !stack_a->head || !stack_b->head)
 		return ;
-	tmp = stack_a->head->content;
-	ft_lstdelone(stack_a->head);
-	ft_lstadd_front(*stack_b, ft_lstnew(tmp));
+	tmp = remove_head(&stack_a->head);
+	stackadd_front(&stack_b->head, tmp);
+	stack_a->size--;
+	stack_b->size++;
 }
