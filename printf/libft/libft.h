@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celgremy <celgremy@student.42belgium.be>   #+#  +:+       +#+        */
+/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026-04-10 08:54:40 by celgremy          #+#    #+#             */
-/*   Updated: 2026-04-10 08:54:40 by celgremy         ###   ########.fr       */
+/*   Created: 2026/04/10 08:54:40 by celgremy          #+#    #+#             */
+/*   Updated: 2026/04/28 14:38:20 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-int		ft_lstsize(t_list *lst);
+int		ft_lstsize(t_stack *lst);
 
-#endif
+#endifs
