@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 13:00:04 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/29 14:16:33 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/29 14:22:06 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ static int	get_index(t_node *target_node, t_stack *stack)
 {
 	int		index;
 	t_node	*node;
+	t_data	*data;
 
 	index = 0;
 	node = stack->head;
 	while (node)
 	{
-		if (((t_data *)node->content)->value
-			< ((t_data *)target_node->content)->value)
+		data = (t_data *)node->content;
+		if (data->value < ((t_data *)target_node->content)->value)
 			index++;
 		node = node->next;
 	}
@@ -32,11 +33,13 @@ static int	get_index(t_node *target_node, t_stack *stack)
 void	ft_value_to_index(t_stack *stack)
 {
 	t_node	*node;
+	t_data	*data;
 
 	node = stack->head;
 	while (node)
 	{
-		((t_data *)node->content)->index = get_index(node, stack);
+		data = (t_data *)node->content;
+		data->index = get_index(node, stack);
 		node = node->next;
 	}
 }
