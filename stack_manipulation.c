@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 09:50:42 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/29 13:01:15 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/29 15:12:05 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_stackadd_back(t_node **stack, t_node *new)
 		*stack = new;
 		return ;
 	}
-	tmp = stacklast(*stack);
+	tmp = ft_stacklast(*stack);
 	tmp->next = new;
 	new->prev = tmp;
 	new->next = NULL;

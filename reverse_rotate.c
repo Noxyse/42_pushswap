@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 13:54:32 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 14:02:14 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/29 15:11:48 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	rra(t_stack *stack_a)
 
 	if (!stack_a || !stack_a->head)
 		return ;
-	tmp = remove_tail(&stack_a->head);
-	stackadd_front(&stack_a->head, tmp);
+	tmp = ft_remove_tail(&stack_a->head);
+	ft_stackadd_front(&stack_a->head, tmp);
 }
 
 void	rrb(t_stack *stack_b)
@@ -28,8 +28,8 @@ void	rrb(t_stack *stack_b)
 
 	if (!stack_b || !stack_b->head)
 		return ;
-	tmp = remove_tail(&stack_b->head);
-	stackadd_front(&stack_b->head, tmp);
+	tmp = ft_remove_tail(&stack_b->head);
+	ft_stackadd_front(&stack_b->head, tmp);
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
