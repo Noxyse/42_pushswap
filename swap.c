@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:23:21 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 13:09:24 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/29 15:02:17 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sa(t_stack *stack_a)
 	tmp = stack_a->head->content;
 	stack_a->head->content = stack_a->head->next->content;
 	stack_a->head->next->content = tmp;
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack *stack_b)
@@ -32,10 +33,12 @@ void	sb(t_stack *stack_b)
 	tmp = stack_b->head->content;
 	stack_b->head->content = stack_b->head->next->content;
 	stack_b->head->next->content = tmp;
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);
+	ft_printf("ss\n");
 }
