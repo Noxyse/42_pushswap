@@ -6,12 +6,13 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/29 10:00:19 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/29 12:06:17 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H	
 # define FT_PUSH_SWAP_H	
+# define NULL (void *) 0
 
 // ------- STRUCT ------- //
 
@@ -56,12 +57,12 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 // ------- HELPERS ------- //
 
-t_node	*stacknew(void *content);
-t_node	*stacklast(t_node *stack);
-t_node	*remove_head(t_node **stack);
-t_node	*remove_tail(t_node **stack);
-void	stackdelone(t_node *stack, void (*del)(void *));
-void	stackadd_front(t_node **stack, t_node *new);
-void	stackadd_back(t_node **stack, t_node *new);
+t_node	*ft_stacknew(void *content);
+t_node	*ft_stacklast(t_node *stack);
+t_node	*ft_remove_head(t_node **stack);
+t_node	*ft_remove_tail(t_node **stack);
+void	ft_stackdelone(t_node *stack, void (*del)(void *));
+void	ft_stackadd_front(t_node **stack, t_node *new);
+void	ft_stackadd_back(t_node **stack, t_node *new);
 
 #endif
