@@ -6,14 +6,13 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 09:50:42 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/29 10:03:19 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/29 12:05:24 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-#define NULL (void *) 0
 
-t_node	*stacknew(void *content)
+t_node	*ft_stacknew(void *content)
 {
 	t_node	*node;
 
@@ -26,7 +25,7 @@ t_node	*stacknew(void *content)
 	return (node);
 }
 
-t_node	*stacklast(t_node *stack)
+t_node	*ft_stacklast(t_node *stack)
 {
 	if (stack == NULL)
 		return (stack);
@@ -35,7 +34,7 @@ t_node	*stacklast(t_node *stack)
 	return (stack);
 }
 
-void	stackdelone(t_node *stack, void (*del)(void *))
+void	ft_stackdelone(t_node *stack, void (*del)(void *))
 {
 	if (!stack || !del)
 		return ;
@@ -43,7 +42,7 @@ void	stackdelone(t_node *stack, void (*del)(void *))
 	free(stack);
 }
 
-void	stackadd_front(t_node **stack, t_node *new)
+void	ft_stackadd_front(t_node **stack, t_node *new)
 {
 	if (!*stack)
 	{
@@ -57,7 +56,7 @@ void	stackadd_front(t_node **stack, t_node *new)
 	*stack = new;
 }
 
-void	stackadd_back(t_node **stack, t_node *new)
+void	ft_stackadd_back(t_node **stack, t_node *new)
 {
 	t_node	*tmp;
 
