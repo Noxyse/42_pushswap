@@ -6,11 +6,12 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 09:50:42 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/28 11:32:11 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/04/29 10:03:19 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+#define NULL (void *) 0
 
 t_node	*stacknew(void *content)
 {
