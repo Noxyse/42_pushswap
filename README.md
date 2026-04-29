@@ -1,5 +1,7 @@
 # 42_pushswap
 
+https://docs.google.com/document/d/1PbisMuJeaaT-_ZfaKkK8IXcldGLDMROPdeM9VbvSxDU/edit?tab=t.0
+
 Petit poney.
 
 Petit poney, petit poney
