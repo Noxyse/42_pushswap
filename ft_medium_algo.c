@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 15:08:24 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 16:38:01 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 17:52:38 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 	t_data	*data_b;
 
 	data_a = (t_data *)a->head->content;
-	data_b = (t_data *)b->head->content;
 	pushed = 0;
 	while (pushed <= (chunk_max - chunk_min))
 	{
+		if (!a->head)
+			break ;
+		data_a = (t_data *)a->head->content;
 		if (data_a->index >= chunk_min && data_a->index <= chunk_max)
 		{
 			pb(a, b);
@@ -53,13 +55,10 @@ static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 			if (b->head->next
 				&& data_b->index < ((t_data *)b->head->next->content)->index)
 				rb(b);
-			data_a = (t_data *)a->head->content;
+
 		}
 		else
-		{
 			ra(a);
-			data_a = (t_data *)a->head->content;
-		}
 	}
 }
 
@@ -67,12 +66,14 @@ void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b)
 {
 	int	chunk_size;
 	int	chunk;
+	int	total_size;
 
+	total_size = stack_a->size;
 	chunk_size = ft_ceil_sqrt(stack_a->size);
 	chunk = 0;
-	while (chunk < stack_a->size)
+	while (chunk < total_size)
 	{
-		sort_chunks(stack_a, stack_b, chunk, chunk + chunk_size);
+		sort_chunks(stack_a, stack_b, chunk, chunk + chunk_size - 1);
 		chunk += chunk_size;
 	}
 	while (stack_b->size > 0)
