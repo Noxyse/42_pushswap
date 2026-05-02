@@ -45,7 +45,7 @@ t_node	*ft_remove_tail(t_node **stack)
 		*stack = NULL;
 		return (removed);
 	}
-	current_tail = stacklast(*stack);
+	current_tail = ft_stacklast(*stack);
 	removed = current_tail;
 	current_tail->prev->next = NULL;
 	return (removed);

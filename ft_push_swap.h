@@ -71,11 +71,24 @@ void	ft_stackadd_back(t_node **stack, t_node *new);
 static int	get_index(t_node *target_node, t_stack *stack);
 void	ft_value_to_index(t_stack *stack);
 
+// ------- PARSING ------- //
+
+int	*ft_parse_to_int(char **s_str, int size, int *error);
+
+// ------- SIMPLE ALGO ------- //
+
+void	ft_simple_algo(t_stack **a, t_stack **b, int *error, int size);
+
 // ------- MEDIUM ALGO ------- //
 
 static int	ft_sqrt(int n);
 static int	ft_ceil_sqrt(int n);
 static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max);
 void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
+
+// ------- MAIN ------- //
+
+static void	ft_free_split(char **split);
+static char	**ft_join_split(int size, char **tab, int *error, int *count);
 
 #endif
