@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 15:08:24 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 17:52:38 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 17:54:23 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 			if (b->head->next
 				&& data_b->index < ((t_data *)b->head->next->content)->index)
 				rb(b);
-
 		}
 		else
 			ra(a);
