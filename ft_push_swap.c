@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 17:07:08 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 17:26:57 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,20 @@ t_stack	*ft_init_stack(void)
 void	ft_fill_stack(int *tab_a, int nb_param, t_stack *a)
 {
 	int		i;
-	int		*val_ptr;
+	t_data	*val_ptr;
 	t_node	*new_node;
 
 	i = 0;
 	while (i < nb_param)
 	{
-		val_ptr = malloc(sizeof(int));
+		val_ptr = malloc(sizeof(t_data));
 		if (!val_ptr)
 		{
 			ft_stackclear(a->head, free);
 			return ;
 		}
-		*val_ptr = tab_a[i];
+		val_ptr->value = tab_a[i];
+		val_ptr->index = 0;
 		new_node = ft_stacknew(val_ptr);
 		ft_stackadd_back(&(a->head), new_node);
 		a->tail = new_node;
@@ -107,6 +108,7 @@ void	*ft_push_swap(int **stack_a, int nb_param, char flags)
 	a = ft_init_stack();
 	b = ft_init_stack();
 	ft_fill_stack(tab_a, nb_param, a);
+	ft_value_to_index(a);
 	res_flags = ft_check_flags(&flags);
 	if (res_flags == 0)
 		ft_compute_disorder(*stack_a, nb_param);

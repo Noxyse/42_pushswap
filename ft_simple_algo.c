@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_simple_algo.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
+/*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:13:47 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 16:24:17 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/02 17:29:45 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int	ft_find_min_pos(t_stack *a)
 	if (!a || !a->head)
 		return (-1);
 	current = a->head;
-	min_val = *(int *)(current->content);
+	min_val = ((t_data *)(current->content))->value;
 	min_pos = 0;
 	i = 0;
 	while (current)
 	{
-		if (*(int *)(current->content) < min_val)
+		if (((t_data *)(current->content))->value < min_val)
 		{
-			min_val = *(int *)(current->content);
+			min_val = ((t_data *)(current->content))->value;
 			min_pos = i;
 		}
 		current = current->next;
@@ -46,9 +46,9 @@ void	ft_sort_three_node(t_stack *a)
 
 	if (!a || a->size != 3)
 		return ;
-	first = *(int *)(a->head->content);
-	second = *(int *)(a->head->next->content);
-	third = *(int *)(a->head->next->next->content);
+	first = ((t_data *)(a->head->content))->value;
+	second = ((t_data *)(a->head->next->content))->value;
+	third = ((t_data *)(a->head->next->next->content))->value;
 	if (first > second && second < third && first < third)
 		sa(a);
 	else if (first > second && second > third && first > third)
