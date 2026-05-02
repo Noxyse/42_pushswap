@@ -6,13 +6,11 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 15:42:23 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/02 15:45:14 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-int		ft_lstsize(t_stack *lst);
 
 int	ft_compute_disorder(int *a, int nb_arg)
 {
