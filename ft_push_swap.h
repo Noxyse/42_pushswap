@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 16:20:11 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 16:47:43 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ typedef struct s_stack
 	t_node	*tail;
 	int		size;
 }			t_stack;
+
+// ------- LIBFT ------- //
+
+int		ft_strcmp(char *s1, char *s2);
 
 // ------- RULES ------- //
 
