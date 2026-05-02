@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:51:15 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 13:34:21 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/02 14:18:24 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,29 @@ static void	ft_free_split(char **split)
 	free(split);
 }
 
-static char	**ft_join_split(int size, char **tab, int *error, int *count)
+int	ft_dupli(int *stack_a, int nb_param)
+{
+	int	i;
+	int	j;
+
+	if (!stack_a)
+		return (0);
+	i = 0;
+	while (i < nb_param - 1)
+	{
+		j = i + 1;
+		while (j < nb_param)
+		{
+			if (stack_a[i] == stack_a[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+static char	**ft_join_split(int size, char **tab, int *error, int *nb_param)
 {
 	char	*temp;
 	char	*join_str;
@@ -47,9 +69,9 @@ static char	**ft_join_split(int size, char **tab, int *error, int *count)
 	}
 	res = ft_split(join_str, ' ');
 	free(join_str);
-	while (res && res[*count])
-		(*count)++;
-	if (*count > 500)
+	while (res && res[*nb_param])
+		(*nb_param)++;
+	if (*nb_param > 500)
 		*error = 1;
 	return (res);
 }
@@ -57,25 +79,25 @@ static char	**ft_join_split(int size, char **tab, int *error, int *count)
 int	main(int argc, char **argv)
 {
 	char	**args_split;
-	int		size;
+	int		nb_param;
 	int		error;
 	int		*stack_a;
 
 	if (argc < 3)
 		return (ft_printf("Error\n"), 0);
-	size = 0;
+	nb_param = 0;
 	error = 0;
-	args_split = ft_join_split(argc, argv, &error, &size);
+	args_split = ft_join_split(argc, argv, &error, &nb_param);
 	if (!args_split || error)
 	{
 		ft_free_split(args_split);
 		return (ft_printf("Error\n"), 0);
 	}
-	stack_a = ft_parse_to_int(args_split, size, &error);
+	stack_a = ft_parse_to_int(args_split, nb_param, &error);
 	ft_free_split(args_split);
-	if (error == 1 || !stack_a || ft_dupli(stack_a, size))
+	if (error == 1 || !stack_a || ft_dupli(stack_a, nb_param))
 		return (free(stack_a), ft_printf("Error\n"), 0);
-	ft_push_swap(&stack_a, size, argv[1]);
+	ft_push_swap(&stack_a, nb_param, argv[1]);
 	free(stack_a);
 	return (0);
 }
