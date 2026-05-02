@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
+/*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 16:52:41 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:55:28 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_fill_stack(int *tab_a, int nb_param, t_stack *a)
 		val_ptr = malloc(sizeof(int));
 		if (!val_ptr)
 		{
-			ft_stackclear(a, del);
+			ft_stackclear(a, free);
 			return ;
 		}
 		*val_ptr = tab_a[i];
