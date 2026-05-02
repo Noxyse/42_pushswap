@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:13:47 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 16:08:28 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/02 16:24:17 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,41 @@
 
 int	ft_find_min_pos(t_stack *a)
 {
-	t_stack	*list;
-	int		index_min;
+	t_node	*current;
+	int		min_val;
+	int		min_pos;
 	int		i;
-	int		min;
 
-	list = a;
-	index_min = 0;
+	if (!a || !a->head)
+		return (-1);
+	current = a->head;
+	min_val = *(int *)(current->content);
+	min_pos = 0;
 	i = 0;
-	min = list->content;
-	while (list)
+	while (current)
 	{
-		if (list->content < min)
+		if (*(int *)(current->content) < min_val)
 		{
-			min = list->content;
-			index_min = i;
+			min_val = *(int *)(current->content);
+			min_pos = i;
 		}
-		list = list->next;
+		current = current->next;
 		i++;
 	}
-	return (index_min);
+	return (min_pos);
 }
 
-void	ft_sort_three_node(t_stack **a)
+void	ft_sort_three_node(t_stack *a)
 {
 	int	first;
 	int	second;
 	int	third;
 
-	if (ft_lstsize(*a) != 3)
+	if (!a || a->size != 3)
 		return ;
-	first = (*a)->content;
-	second = (*a)->next->content;
-	third = (*a)->next->next->content;
+	first = *(int *)(a->head->content);
+	second = *(int *)(a->head->next->content);
+	third = *(int *)(a->head->next->next->content);
 	if (first > second && second < third && first < third)
 		sa(a);
 	else if (first > second && second > third && first > third)
@@ -65,25 +67,24 @@ void	ft_sort_three_node(t_stack **a)
 		rra(a);
 }
 
-void	ft_simple_algo(t_stack **a, t_stack **b, int size)
+void	ft_simple_algo(t_stack *a, t_stack *b)
 {
 	int	min_pos;
 
-	while (size > 3)
+	while (a->size > 3)
 	{
-		min_pos = ft_find_min_pos(*a);
+		min_pos = ft_find_min_pos(a);
 		while (min_pos != 0)
 		{
-			if (min_pos > size / 2)
-				rra(a);
-			else if (min_pos <= size / 2)
+			if (min_pos <= a->size / 2)
 				ra(a);
-			min_pos = ft_find_min_pos(*a);
+			else
+				rra(a);
+			min_pos = ft_find_min_pos(a);
 		}
 		pb(a, b);
-		size--;
 	}
 	ft_sort_three_node(a);
-	while (*b)
+	while (b->size > 0)
 		pa(a, b);
 }
