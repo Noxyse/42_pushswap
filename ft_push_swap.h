@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 17:09:55 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 17:33:34 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ void	ft_complex_algo(t_stack *a, t_stack *b);
 
 // ------- MAIN ------- //
 
-void	*ft_push_swap(int **stack_a, int nb_param, char flags);
+void	*ft_push_swap(int **stack_a, int nb_param, char *flags);
 
 #endif

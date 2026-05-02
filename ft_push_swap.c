@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 17:26:57 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 17:32:58 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	ft_check_flags(char *flags)
 	return (-1);
 }
 
-void	*ft_push_swap(int **stack_a, int nb_param, char flags)
+void	*ft_push_swap(int **stack_a, int nb_param, char *flags)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -109,7 +109,7 @@ void	*ft_push_swap(int **stack_a, int nb_param, char flags)
 	b = ft_init_stack();
 	ft_fill_stack(tab_a, nb_param, a);
 	ft_value_to_index(a);
-	res_flags = ft_check_flags(&flags);
+	res_flags = ft_check_flags(flags);
 	if (res_flags == 0)
 		ft_compute_disorder(*stack_a, nb_param);
 	else if (res_flags == 1)
