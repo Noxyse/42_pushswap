@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 16:47:43 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 17:09:55 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_stack
 // ------- LIBFT ------- //
 
 int		ft_strcmp(char *s1, char *s2);
+int		ft_printf(const char *format, ...);
 
 // ------- RULES ------- //
 
@@ -79,13 +80,11 @@ void	ft_value_to_index(t_stack *stack);
 
 int		*ft_parse_to_int(char **s_str, int size, int *error);
 
-// ------- SIMPLE ALGO ------- //
+// ------- ALGOS ------- //
 
-void	ft_simple_algo(t_stack **a, t_stack **b);
-
-// ------- MEDIUM ALGO ------- //
-
+void	ft_simple_algo(t_stack *a, t_stack *b);
 void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
+void	ft_complex_algo(t_stack *a, t_stack *b);
 
 // ------- MAIN ------- //
 

@@ -6,12 +6,13 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 16:55:28 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 17:07:08 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
+int	ft_printf(const char *format, ...);
 int	ft_strcmp(char *s1, char *s2);
 
 int	ft_compute_disorder(int *a, int nb_arg)
@@ -68,7 +69,7 @@ void	ft_fill_stack(int *tab_a, int nb_param, t_stack *a)
 		val_ptr = malloc(sizeof(int));
 		if (!val_ptr)
 		{
-			ft_stackclear(a, free);
+			ft_stackclear(a->head, free);
 			return ;
 		}
 		*val_ptr = tab_a[i];
@@ -106,9 +107,9 @@ void	*ft_push_swap(int **stack_a, int nb_param, char flags)
 	a = ft_init_stack();
 	b = ft_init_stack();
 	ft_fill_stack(tab_a, nb_param, a);
-	res_flags = ft_check_flags(flags);
+	res_flags = ft_check_flags(&flags);
 	if (res_flags == 0)
-		ft_compute_disorder(stack_a, nb_param);
+		ft_compute_disorder(*stack_a, nb_param);
 	else if (res_flags == 1)
 		ft_simple_algo(a, b);
 	else if (res_flags == 2)

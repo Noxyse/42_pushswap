@@ -24,7 +24,8 @@ SRCS = ft_medium_algo.c \
        stack_manipulation.c \
        stack_manipulation2.c \
 	   ft_strcmp.c \
-       swap.c
+       swap.c \
+	   ft_complex_algo.c
 
 OBJS = $(SRCS:.c=.o)
 

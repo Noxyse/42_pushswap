@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_complex_algo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/17 12:51:26 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 17:14:49 by mgedeon          ###   ########.fr       */
+/*   Created: 2026/05/02 17:02:34 by mgedeon           #+#    #+#             */
+/*   Updated: 2026/05/02 17:11:47 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_complex_algo(t_stack *a, t_stack *b)
 {
-	int		count;
-	t_list	*temp;
-
-	count = 0;
-	temp = lst;
-	while (temp != NULL)
-	{
-		count++;
-		temp = temp->next;
-	}
-	return (count);
+	if (a || b)
+		return ;
 }
