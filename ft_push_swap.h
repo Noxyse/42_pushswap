@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 13:49:12 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 13:50:21 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,5 @@ void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
 
 static void	ft_free_split(char **split);
 static char	**ft_join_split(int size, char **tab, int *error, int *count);
-int	main(int argc, char **argv);
 
 #endif
