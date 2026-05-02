@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 19:58:22 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 13:20:25 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/02 14:11:24 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,34 @@ int	ft_atoi(char *ptr, int *error)
 		*error = 1;
 	while (ptr[i] >= '0' && ptr[i] <= '9')
 	{
-		res = res * 10 + (ptr[i++] - '0');
-		if ((sign * res) > 2147483647 || (sign * res) < -2147483648)
+		if (res > (2147483647L + (sign == -1)) / 10)
 		{
 			*error = 1;
 			return (0);
 		}
+		res = res * 10 + (ptr[i++] - '0');
 	}
 	if (ptr[i] != '\0')
 		*error = 1;
 	return (res * sign);
 }
 
-int	*ft_parse_to_int(char **s_str, int size, int *error)
+int	*ft_parse_to_int(char **s_str, int nb_param, int *error)
 {
 	int		*s_int;
 	int		i;
 
-	if (!s_str || size <= 0)
+	if (!s_str || nb_param <= 0)
 		return (NULL);
-	s_int = malloc(sizeof(int) * size);
+	s_int = malloc(sizeof(int) * nb_param);
 	if (!s_int)
 		return (NULL);
 	i = 0;
-	while (i < size)
+	while (i < nb_param)
 	{
 		s_int[i] = ft_atoi(s_str[i], error);
+		if (*error)
+			break ;
 		i++;
 	}
 	return (s_int);
