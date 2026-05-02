@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:21:21 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/29 13:01:30 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 15:59:17 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,18 @@ t_node	*ft_remove_tail(t_node **stack)
 	removed = current_tail;
 	current_tail->prev->next = NULL;
 	return (removed);
+}
+
+void	ft_stackclear(t_node *stack, void (*del)(void *))
+{
+	t_node	*tmp;
+
+	if (!stack || !del)
+		return ;
+	while (stack != NULL)
+	{
+		tmp = (stack->next);
+		ft_stackdelone(stack, del);
+		stack = tmp;
+	}
 }
