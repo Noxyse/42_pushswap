@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 10:20:36 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/02 15:42:23 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,48 @@ int	ft_compute_disorder(int *a, int nb_arg)
 	return (2);
 }
 
-void	*ft_push_swap(int **stack_a)
+t_stack	*ft_init_stack(void)
 {
-	int	**stack_b;
-	int	select_algo;
-	int	size;
+	t_stack	*stack;
 
-	size = ft_lstsize(a);
-	select_algo = ft_compute_disorder(a, size);
-	if (select_algo == 1)
-		ft_simple_algo(stack_a, stack_b, size);
-	else if (select_algo == 2)
-		ft_medium_algo(stack_a, stack_b, size);
-	else
-		ft_complex_algo(stack_a, stack_b, size);
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->head = NULL;
+	stack->tail = NULL;
+	stack->size = 0;
+	return (stack);
+}
+
+void	ft_fill_stack(int *tab_a, int nb_param, t_stack *a)
+{
+	int		i;
+	int		*val_ptr;
+	t_node	*new_node;
+
+	i = 0;
+	while (i < nb_param)
+	{
+		val_ptr = malloc(sizeof(int));
+		if (!val_ptr)
+			return ;
+		*val_ptr = tab[i];
+		new_node = ft_stacknew(val_ptr);
+		ft_stackadd_back(&(a->head), new_node);
+		a->tail = new_node;
+		a->size++;
+		i++;
+	}
+}
+
+void	*ft_push_swap(int **stack_a, int nb_param, char flags)
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		tab_a;
+
+	tab_a = *stack_a;
+	a = ft_init_stack();
+	b = ft_init_stack();
+	ft_fill_stack(tab_a, nb_param, &a);
 }
