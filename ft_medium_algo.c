@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 15:08:24 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 14:12:10 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/02 16:35:46 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,12 @@ void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b)
 {
 	int	chunk_size;
 	int	chunk;
+	int	total_size;
 
+	total_size = stack_a->size;
 	chunk_size = ft_ceil_sqrt(stack_a->size);
 	chunk = 0;
-	while (chunk < stack_a->size)
+	while (chunk < total_size)
 	{
 		sort_chunks(stack_a, stack_b, chunk, chunk + chunk_size);
 		chunk += chunk_size;
