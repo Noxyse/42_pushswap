@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
+/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 17:47:18 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 12:53:30 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,7 @@ void	ft_fill_stack(int *tab_a, int nb_param, t_stack *a)
 
 int	ft_check_flags(char *flags)
 {
-	if (!flags)
-		return (-1);
-	else if (ft_strcmp(flags, "--adaptive") == 0)
+	if (ft_strcmp(flags, "--adaptive") == 0)
 		return (0);
 	else if (ft_strcmp(flags, "--simple") == 0)
 		return (1);
@@ -94,7 +92,7 @@ int	ft_check_flags(char *flags)
 		return (2);
 	else if (ft_strcmp(flags, "--complex") == 0)
 		return (3);
-	return (-1);
+	return (0);
 }
 
 void	*ft_push_swap(int **stack_a, int nb_param, char *flags)
@@ -112,11 +110,11 @@ void	*ft_push_swap(int **stack_a, int nb_param, char *flags)
 	res_flags = ft_check_flags(flags);
 	if (res_flags == 0)
 		ft_compute_disorder(*stack_a, nb_param);
-	else if (res_flags == 1)
+	else if (res_flags == 1 || ft_compute_disorder(*stack_a, nb_param) == 1)
 		ft_simple_algo(a, b);
-	else if (res_flags == 2)
+	else if (res_flags == 2 || ft_compute_disorder(*stack_a, nb_param) == 2)
 		ft_medium_algo(a, b);
-	else if (res_flags == 3)
+	else if (res_flags == 3 || ft_compute_disorder(*stack_a, nb_param) == 3)
 		ft_complex_algo(a, b);
 	else
 		ft_printf("Error\n");
