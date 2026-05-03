@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 15:08:24 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 15:33:14 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 15:53:48 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,11 @@ void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b)
 		chunk += chunk_size;
 	}
 	while (stack_b->size > 0)
-		pa(stack_a, stack_b);
+	{
+		if (find_max_pos(b, chunk, chunk + chunk_size -1) < b->size / 2)
+			rb(b);
+		else
+			rrb(b);
+	}
+	pa(stack_a, stack_b);
 }
