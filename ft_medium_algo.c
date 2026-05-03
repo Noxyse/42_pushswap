@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 15:08:24 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 11:40:31 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 14:25:35 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,25 @@ static int	ft_ceil_sqrt(int n)
 	return (i);
 }
 
+static int	which_half(t_stack *a, int chunk_min, int chunk_max)
+{
+	t_node	*current;
+	t_data	*data;
+	int		pos;
+
+	pos = 0;
+	current = a->head;
+	while (current)
+	{
+		data = (t_data *)current->content;
+		if (data->index >= chunk_min && data->index <= chunk_max)
+			return (pos < a->size / 2);
+		current = current->next;
+		pos++;
+	}
+	return (-1);
+}
+
 static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 {
 	int		pushed;
@@ -52,12 +71,21 @@ static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 			pb(a, b);
 			pushed++;
 			data_b = (t_data *)b->head->content;
-			if (b->head->next
-				&& data_b->index < ((t_data *)b->head->next->content)->index)
-				rb(b);
+			if (b->head->next)
+			{
+				if (data_b->index < ((t_data *)b->head->next->content)->index && data_b->index > ((t_data *)b->head->next->next->content)->index)
+					sb(b);
+				if (data_b->index < ((t_data *)b->head->next->content)->index)
+					rb(b);
+			}
 		}
 		else
-			ra(a);
+		{
+			if (which_half(a, chunk_min, chunk_max))
+				ra(a);
+			else
+				rra(a);
+		}
 	}
 }
 
