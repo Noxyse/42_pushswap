@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 15:54:13 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 16:21:02 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ typedef struct s_node
 
 typedef struct s_data
 {
-	int	value;
-	int	index;
-}		t_data;
+	int				value;
+	int				index;
+	int				push_cost;
+	int				above_median;
+	struct s_node	*target_node;
+}					t_data;
 
 typedef struct s_stack
 {
@@ -85,7 +88,7 @@ int		*ft_parse_to_int(char **s_str, int size, int *error);
 void	ft_simple_algo(t_stack *a, t_stack *b);
 void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
 void	ft_complex_algo(t_stack *a, t_stack *b);
-int		find_max_pos(t_stack *b, int chunk_min, int chunk_max);
+int		find_max_pos(t_stack *b);
 
 // ------- MAIN ------- //
 

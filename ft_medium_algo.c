@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 15:08:24 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 15:53:48 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 16:13:37 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,6 @@ static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max)
 			data_b = (t_data *)b->head->content;
 			if (b->head->next)
 			{
-				/* if (b->head->next->next && data_b->index < ((t_data *)b->head->next->content)->index && data_b->index > ((t_data *)b->head->next->next->content)->index)
-					sb(b);
-					*/
 				if (data_b->index < ((t_data *)b->head->next->content)->index)
 					rb(b);
 			}
@@ -106,10 +103,10 @@ void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b)
 	}
 	while (stack_b->size > 0)
 	{
-		if (find_max_pos(b, chunk, chunk + chunk_size -1) < b->size / 2)
-			rb(b);
+		if (find_max_pos(stack_b) < stack_b->size / 2)
+			rb(stack_b);
 		else
-			rrb(b);
+			rrb(stack_b);
+		pa(stack_a, stack_b);
 	}
-	pa(stack_a, stack_b);
 }

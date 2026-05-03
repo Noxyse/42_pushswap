@@ -6,13 +6,13 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 15:19:17 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 15:51:12 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 16:13:25 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	find_max_pos(t_stack *b, int chunk_min, int chunk_max)
+int	find_max_pos(t_stack *b)
 {
 	t_node	*current;
 	t_data	*data;

@@ -11,7 +11,7 @@ RM = rm -f
 
 # ===== DIRECTORIES AND FILES ===== #
 
-SRC_ALGO = ft_simple_algo.c ft_medium_algo.c ft_complex_algo.c
+SRC_ALGO = ft_simple_algo.c ft_medium_algo.c ft_medium_algo2.c ft_complex_algo.c
 
 SRC_HELPERS = stack_manipulation.c stack_manipulation2.c
 
