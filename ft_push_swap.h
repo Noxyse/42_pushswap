@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 16:27:02 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 16:44:34 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		*ft_parse_to_int(char **s_str, int size, int *error);
 void	ft_simple_algo(t_stack *a, t_stack *b);
 void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
 void	ft_complex_algo(t_stack *a, t_stack *b);
-int		find_max_pos(t_stack *b, int total_size);
+int		find_max_pos(t_stack *b);
 
 // ------- MAIN ------- //
 
