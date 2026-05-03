@@ -6,13 +6,13 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 15:19:17 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 16:13:25 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 16:28:19 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	find_max_pos(t_stack *b)
+int	find_max_pos(t_stack *b, int total_size)
 {
 	t_node	*current;
 	t_data	*data;
@@ -21,7 +21,7 @@ int	find_max_pos(t_stack *b)
 	int		max_index_pos;
 
 	current = b->head;
-	max_index = -1;
+	max_index = total_size;
 	current_pos = 0;
 	max_index_pos = 0;
 	while (current)

@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 15:08:24 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/03 16:13:37 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/03 16:26:51 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b)
 	}
 	while (stack_b->size > 0)
 	{
-		if (find_max_pos(stack_b) < stack_b->size / 2)
+		if (find_max_pos(stack_b, total_size) < stack_b->size / 2)
 			rb(stack_b);
 		else
 			rrb(stack_b);
