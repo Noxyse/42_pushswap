@@ -6,13 +6,18 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 17:02:34 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/04 14:23:42 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/04 14:56:42 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
 void	ft_sort_three_node(t_stack *a);
+
+int	ft_find_best_path(t_stack *a)
+{
+	
+}
 
 void	ft_min_a_to_top(t_stack *a)
 {
