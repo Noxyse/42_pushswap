@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/04 14:19:31 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/04 14:46:44 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_data
 	int				push_cost;
 	int				above_median;
 	int				pos;
-	t_node			*target_node;
+	t_node			*target;
 }					t_data;
 
 typedef struct s_stack
