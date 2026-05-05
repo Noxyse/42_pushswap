@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:32:53 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/05 13:48:12 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/05 13:50:21 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_find_target_node(t_stack *a, t_stack *b)
 			}
 			current_a = current_a->next;
 		}
-		if (data_b->index > data_a->index)
-			data_b->target = NULL;
+		if (data_b->target == NULL)
+			data_b->target = ft_find_min_node(a);
 		current_b = current_b->next;
 	}
 }
