@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:32:53 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/04 15:06:24 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/05 13:34:44 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ void	ft_find_target_node(t_stack *a, t_stack *b)
 					data_b->target = current_a;
 			}
 			current_a = current_a->next;
+			if (data_b->index > data_a->index)
+				data_b->target = NULL;
 		}
 		current_b = current_b->next;
 	}
-	// MISSING EDGE CASE WHEN CURRENT_B IS BIGGER THAN EVERY NODE IN A
 }
