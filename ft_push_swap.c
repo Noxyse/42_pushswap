@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/03 17:08:23 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/10 17:00:47 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	ft_fill_stack(int *tab_a, int nb_param, t_stack *a)
 		val_ptr->index = 0;
 		new_node = ft_stacknew(val_ptr);
 		ft_stackadd_back(&(a->head), new_node);
-		// a->tail = new_node;
 		a->size++;
 		i++;
 	}

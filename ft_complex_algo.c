@@ -5,40 +5,107 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 17:02:34 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/04 14:56:42 by celgremy         ###   ########.fr       */
+/*   Created: 2026/05/10 16:17:39 by celgremy          #+#    #+#             */
+/*   Updated: 2026/05/10 16:54:55 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
+int		ft_abs(int n);
+void	ft_calculate_cost(t_stack *a, t_stack *b);
+t_node	*ft_find_best_path(t_stack *b);
+void	ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b);
 void	ft_sort_three_node(t_stack *a);
 
-int	ft_find_best_path(t_stack *a)
+t_node	*ft_find_min_node(t_stack *stack)
 {
-	
+	t_node	*current;
+	t_node	*min_node;
+	t_data	*data;
+	int		min_index;
+
+	min_node = NULL;
+	min_index = INT_MAX;
+	current = stack->head;
+	while (current)
+	{
+		data = (t_data *)current->content;
+		if (data->index < min_index)
+		{
+			min_node = current;
+			min_index = data->index;
+		}
+		current = current->next;
+	}
+	return (min_node);
+}
+
+void	ft_find_target_node(t_stack *a, t_stack *b)
+{
+	t_node	*current_a;
+	t_node	*current_b;
+	t_data	*data_a;
+	t_data	*data_b;
+
+	current_b = b->head;
+	while (current_b)
+	{
+		data_b = (t_data *)current_b->content;
+		data_b->target = NULL;
+		current_a = a->head;
+		while (current_a)
+		{
+			data_a = (t_data *)current_a->content;
+			if (data_a->index > data_b->index)
+			{
+				if (data_b->target == NULL || data_a->index
+					< ((t_data *)data_b->target->content)->index)
+					data_b->target = current_a;
+			}
+			current_a = current_a->next;
+		}
+		if (data_b->target == NULL)
+			data_b->target = ft_find_min_node(a);
+		current_b = current_b->next;
+	}
+}
+
+void	ft_update_pos(t_stack *stack)
+{
+	t_node	*current;
+	t_data	*data;
+	int		pos;
+
+	pos = 0;
+	current = stack->head;
+	while (current)
+	{
+		data = (t_data *)current->content;
+		data->pos = pos;
+		pos++;
+		current = current->next;
+	}
 }
 
 void	ft_min_a_to_top(t_stack *a)
 {
-	t_node	*current;
-	t_data	*data;
+	t_node	*min;
 
-	current = a->head;
-	while (data->index != 0)
+	min = ft_find_min_node(a);
+	while (a->head != min)
 	{
-		data = (t_data *)current->content;
-		if (data->index < a->size / 2)
+		if (((t_data *)min->content)->pos <= a->size / 2)
 			ra(a);
 		else
 			rra(a);
-		current = current->next;
+		ft_update_pos(a);
 	}
 }
 
 void	ft_complex_algo(t_stack *a, t_stack *b)
 {
-	t_node	best;
+	t_node	*best;
 
 	while (a->size > 3)
 		pb(a, b);
@@ -48,7 +115,7 @@ void	ft_complex_algo(t_stack *a, t_stack *b)
 		ft_update_pos(a);
 		ft_update_pos(b);
 		ft_calculate_cost(a, b);
-		best = ft_find_best_path(a);
+		best = ft_find_best_path(b);
 		ft_move_b_to_a(best, a, b);
 	}
 	ft_min_a_to_top(a);

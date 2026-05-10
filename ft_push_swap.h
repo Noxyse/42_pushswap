@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
+/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/05 14:09:13 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/10 16:49:28 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,11 @@ void	ft_simple_algo(t_stack *a, t_stack *b);
 void	ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
 void	ft_complex_algo(t_stack *a, t_stack *b);
 int		find_max_pos(t_stack *b);
+
+int		ft_abs(int n);
+void	ft_calculate_cost(t_stack *a, t_stack *b);
+t_node	*ft_find_best_path(t_stack *b);
+void	ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b);
 
 // ------- MAIN ------- //
 
