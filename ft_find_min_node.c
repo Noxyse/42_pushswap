@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_medium_algo2.c                                  :+:      :+:    :+:   */
+/*   ft_find_min_node.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/03 15:19:17 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/04 20:48:46 by mgedeon          ###   ########.fr       */
+/*   Created: 2026/05/05 13:50:38 by mgedeon           #+#    #+#             */
+/*   Updated: 2026/05/05 14:19:31 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	find_max_pos(t_stack *b)
+t_node	*ft_find_min_node(t_stack *stack)
 {
 	t_node	*current;
+	t_node	*min_node;
 	t_data	*data;
-	int		max_index;
-	int		current_pos;
-	int		max_index_pos;
+	int		min_index;
 
-	current = b->head;
-	max_index = -1;
-	current_pos = 0;
-	max_index_pos = 0;
+	min_node = NULL;
+	min_index = INT_MAX;
+	current = stack->head;
 	while (current)
 	{
 		data = (t_data *)current->content;
-		if (data->index > max_index)
+		if (data->index < min_index)
 		{
-			max_index = data->index;
-			max_index_pos = current_pos;
+			min_node = current;
+			min_index = data->index;
 		}
-		current_pos++;
 		current = current->next;
 	}
-	return (max_index_pos);
+	return (min_node);
 }
