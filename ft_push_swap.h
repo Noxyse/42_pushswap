@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/12 13:51:13 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/12 13:57:08 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ int			ft_find_min_pos(t_stack *a);
 // ------- MEDIUM ------- //
 void		ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
 int			find_max_pos(t_stack *b);
-static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max);
-static int	which_half(t_stack *a, int chunk_min, int chunk_max);
-static int	ft_ceil_sqrt(int n);
-static int	ft_sqrt(int n);
+// static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max);
+// static int	which_half(t_stack *a, int chunk_min, int chunk_max);
+// static int	ft_ceil_sqrt(int n);
+// static int	ft_sqrt(int n);
 
 // ------- COMPLEX ------- //
 void		ft_complex_algo(t_stack *a, t_stack *b);
