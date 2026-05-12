@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 16:17:39 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/12 12:24:42 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/12 13:28:10 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,52 +68,6 @@ void	ft_find_target_node(t_stack *a, t_stack *b)
 		if (data_b->target == NULL)
 			data_b->target = ft_find_min_node(a);
 		current_b = current_b->next;
-	}
-}
-
-void	ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b)
-{
-	while (b->size != 0)
-	{
-		if (best > b->size / 2 && best->target > b->size / 2)
-		{
-			while (best->pos != 0 && best->target->pos != 0)
-			{
-				rr(a, b);
-				ft_update_pos(a);
-				ft_update_pos(b);
-			}
-		}
-		if (best < b->size / 2 && best->target < b->size / 2)
-		{
-			while (best->pos != 0 && best->target->pos != 0)
-			{
-				rrr(a, b);
-				ft_update_pos(a);
-				ft_update_pos(b);
-			}
-		}
-		if (best > b->size / 2 && best->target < b->size / 2)
-		{
-			while (best->pos != 0 && best->target->pos != 0)
-			{
-				rra(a);
-				rb(b);
-				ft_update_pos(a);
-				ft_update_pos(b);
-			}
-		}
-		if (best < b->size / 2 && best->target > b->size / 2)
-		{
-			while (best->pos != 0 && best->target->pos != 0)
-			{
-				ra(a);
-				rrb(b);
-				ft_update_pos(a);
-				ft_update_pos(b);
-			}
-		}
-		pa(a, b);
 	}
 }
 
