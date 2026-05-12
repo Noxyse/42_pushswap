@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 16:44:35 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/10 16:44:54 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:17:26 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,34 +69,3 @@ t_node	*ft_find_best_path(t_stack *b)
 	}
 	return (best);
 }
-
-void	ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b)
-{
-	t_data	*db;
-	t_data	*da;
-	int		c_a;
-	int		c_b;
-
-	db = (t_data *)best->content;
-	da = (t_data *)db->target->content;
-	c_b = db->pos;
-	if (db->pos > b->size / 2)
-		c_b = db->pos - b->size;
-	c_a = da->pos;
-	if (da->pos > a->size / 2)
-		c_a = da->pos - a->size;
-	while (c_a > 0 && c_b > 0 && c_a-- && c_b--)
-		rr(a, b);
-	while (c_a < 0 && c_b < 0 && c_a++ && c_b++)
-		rrr(a, b);
-	while (c_a > 0 && c_a--)
-		ra(a);
-	while (c_a < 0 && c_a++)
-		rra(a);
-	while (c_b > 0 && c_b--)
-		rb(b);
-	while (c_b < 0 && c_b++)
-		rrb(b);
-	pa(a, b);
-}
-
