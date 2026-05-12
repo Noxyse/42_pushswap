@@ -24,9 +24,6 @@ bonus: all
 
 all: $(NAME)
 
-main: $(NAME)
-	$(CC) $(CFLAGS) $(INC) main.c $(NAME) -o run
-
 $(SRC_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
@@ -47,7 +44,6 @@ clean:
 fclean: clean
 	@make fclean -C $(LIBFT_PATH)
 	$(RM) $(NAME)
-	rm -f run
 	@echo "$(NAME) deleted"
 
 re: fclean all
