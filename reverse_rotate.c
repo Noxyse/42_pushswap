@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 13:54:32 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 17:10:37 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:45:24 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,17 @@ void	rrb(t_stack *stack_b)
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	t_node	*tmp;
+
+	if (stack_a && stack_a->head)
+	{
+		tmp = ft_remove_tail(&stack_a->head);
+		ft_stackadd_front(&stack_a->head, tmp);
+	}
+	if (stack_b && stack_b->head)
+	{
+		tmp = ft_remove_tail(&stack_b->head);
+		ft_stackadd_front(&stack_b->head, tmp);
+	}
 	ft_printf("rrr\n");
 }

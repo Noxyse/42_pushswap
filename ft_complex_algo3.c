@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 13:28:15 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/12 16:20:42 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:39:26 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b)
 	int	cost_b;
 
 	cost_b = ((t_data *)best->content)->pos;
-	if (cost_b > (b->size + 1) / 2)
+	if (cost_b > b->size / 2)
 		cost_b -= b->size;
 	cost_a = ((t_data *)((t_data *)best->content)->target->content)->pos;
-	if (cost_a > (a->size + 1) / 2)
+	if (cost_a > a->size / 2)
 		cost_a -= a->size;
 	while (cost_a > 0 && cost_b > 0)
 	{
