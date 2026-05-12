@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_complex_algo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
+/*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 16:17:39 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/12 13:28:10 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/12 13:49:36 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
-
-int		ft_abs(int n);
-void	ft_calculate_cost(t_stack *a, t_stack *b);
-t_node	*ft_find_best_path(t_stack *b);
-void	ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b);
-void	ft_sort_three_node(t_stack *a);
 
 t_node	*ft_find_min_node(t_stack *stack)
 {
