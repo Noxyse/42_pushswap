@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_complex_algo3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
+/*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 13:28:15 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/12 13:39:40 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:59:44 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
