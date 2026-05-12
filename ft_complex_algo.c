@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 16:17:39 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/12 13:49:36 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/12 14:40:04 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	ft_complex_algo(t_stack *a, t_stack *b)
 	{
 		ft_update_pos(a);
 		ft_update_pos(b);
+		ft_find_target_node(a, b);
 		ft_calculate_cost(a, b);
 		best = ft_find_best_path(b);
 		ft_move_b_to_a(best, a, b);
