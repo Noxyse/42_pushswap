@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
+/*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/10 17:00:47 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/12 16:23:01 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
