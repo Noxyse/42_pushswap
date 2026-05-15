@@ -6,13 +6,13 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:23:21 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/04/29 15:02:17 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:24:01 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	sa(t_stack *stack_a)
+void	sa(t_stack *stack_a, t_bench *bench)
 {
 	void	*tmp;
 
@@ -21,10 +21,12 @@ void	sa(t_stack *stack_a)
 	tmp = stack_a->head->content;
 	stack_a->head->content = stack_a->head->next->content;
 	stack_a->head->next->content = tmp;
+	if (bench)
+		bench_count_op(bench, "sa");
 	ft_printf("sa\n");
 }
 
-void	sb(t_stack *stack_b)
+void	sb(t_stack *stack_b, t_bench *bench)
 {
 	void	*tmp;
 
@@ -33,12 +35,16 @@ void	sb(t_stack *stack_b)
 	tmp = stack_b->head->content;
 	stack_b->head->content = stack_b->head->next->content;
 	stack_b->head->next->content = tmp;
+	if (bench)
+		bench_count_op(bench, "sb");
 	ft_printf("sb\n");
 }
 
-void	ss(t_stack *stack_a, t_stack *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
 	sa(stack_a);
 	sb(stack_b);
+	if (bench)
+		bench_count_op(bench, "ss");
 	ft_printf("ss\n");
 }

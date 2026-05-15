@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/12 13:57:08 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 15:54:37 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 # include <limits.h>
 
 // ------- STRUCTURES ------- //
+
+typedef struct s_bench
+{
+	int				sa;
+	int				sb;
+	int				ss;
+	int				pa;
+	int				pb;
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+}					t_bench;
 
 typedef struct s_node
 {
@@ -37,15 +52,16 @@ typedef struct s_data
 
 typedef struct s_stack
 {
-	t_node	*head;
-	t_node	*tail;
-	int		size;
+	t_node			*head;
+	t_node			*tail;
+	int				size;
 }			t_stack;
 
 // ------- LIBFT ------- //
 
 int			ft_strcmp(char *s1, char *s2);
 int			ft_printf(const char *format, ...);
+void		*ft_calloc(size_t nmemb, size_t size);
 
 // ------- RULES ------- //
 

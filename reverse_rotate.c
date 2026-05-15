@@ -6,13 +6,13 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 13:54:32 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/02 17:10:37 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:23:10 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	rra(t_stack *stack_a)
+void	rra(t_stack *stack_a, t_bench *bench)
 {
 	t_node	*tmp;
 
@@ -20,10 +20,12 @@ void	rra(t_stack *stack_a)
 		return ;
 	tmp = ft_remove_tail(&stack_a->head);
 	ft_stackadd_front(&stack_a->head, tmp);
+	if (bench)
+		bench_count_op(bench, "rra");
 	ft_printf("rra\n");
 }
 
-void	rrb(t_stack *stack_b)
+void	rrb(t_stack *stack_b, t_bench *bench)
 {
 	t_node	*tmp;
 
@@ -31,12 +33,16 @@ void	rrb(t_stack *stack_b)
 		return ;
 	tmp = ft_remove_tail(&stack_b->head);
 	ft_stackadd_front(&stack_b->head, tmp);
+	if (bench)
+		bench_count_op(bench, "rrb");
 	ft_printf("rrb\n");
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b)
+void	rrr(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
 	rra(stack_a);
 	rrb(stack_b);
+	if (bench)
+		bench_count_op(bench, "rrr");
 	ft_printf("rrr\n");
 }
