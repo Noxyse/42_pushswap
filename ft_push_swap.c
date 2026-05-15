@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/13 16:26:36 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/15 13:47:42 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,30 +81,36 @@ void	ft_fill_stack(int *tab_a, int nb_param, t_stack *a)
 	}
 }
 
-void	ft_check_flags(char *flags, int **s_a, int nb_param, t_stack *a, t_stack *b)
+void	ft_check_flags(char *flag1, char *flag2)
 {
 	int	setting;
-
+	// A modifier !
 	setting = 0;
-	if (ft_strcmp(flags, "--adaptive") == 0)
-		setting = 0;
-	else if (ft_strcmp(flags, "--simple") == 0)
-		setting = -1;
-	else if (ft_strcmp(flags, "--medium") == 0)
-		setting = -2;
-	else if (ft_strcmp(flags, "--complex") == 0)
-		setting = -3;
-	if (setting == 0)
-		ft_compute_disorder(*s_a, nb_param);
-	else if (setting == -1 || ft_compute_disorder(*s_a, nb_param) == 1)
-		ft_simple_algo(a, b);
-	else if (setting == -2 || ft_compute_disorder(*s_a, nb_param) == 2)
-		ft_medium_algo(a, b);
-	else if (setting == -3 || ft_compute_disorder(*s_a, nb_param) == 3)
-		ft_complex_algo(a, b);
+	if (ft_strcmp(flag1, "--bench") == 0)
+	{
+		if (ft_strcmp(flags, "--adaptive") == 0)
+			setting = 1;
+		else if (ft_strcmp(flags, "--simple") == 0)
+			setting = 2;
+		else if (ft_strcmp(flags, "--medium") == 0)
+			setting = 3;
+		else if (ft_strcmp(flags, "--complex") == 0)
+			setting = 4;
+	}
+	else
+	{
+		if (ft_strcmp(flags, "--adaptive") == 0)
+			setting = 0;
+		else if (ft_strcmp(flags, "--simple") == 0)
+			setting = -1;
+		else if (ft_strcmp(flags, "--medium") == 0)
+			setting = -2;
+		else if (ft_strcmp(flags, "--complex") == 0)
+			setting = -3;
+	}
 }
 
-void	*ft_push_swap(int **stack_a, int nb_param, char *flags)
+void	*ft_push_swap(int **stack_a, int nb_param, char *flag1, char *flag2)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -115,6 +121,6 @@ void	*ft_push_swap(int **stack_a, int nb_param, char *flags)
 	b = ft_init_stack();
 	ft_fill_stack(tab_a, nb_param, a);
 	ft_value_to_index(a);
-	ft_check_flags(flags, stack_a, nb_param, a, b);
+	ft_check_flags(flag1, stack_a, nb_param, a, b);
 	return (NULL);
 }

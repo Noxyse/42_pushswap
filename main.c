@@ -6,7 +6,7 @@
 /*   By: celgremy <celgremy@student.42belgium.be    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:51:15 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/03 14:10:19 by celgremy         ###   ########.fr       */
+/*   Updated: 2026/05/15 13:48:05 by celgremy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,15 @@ int	main(int argc, char **argv)
 	int		nb_param;
 	int		error;
 	int		*stack_a;
+	int		flag;
 
 	if (argc < 3)
 		return (ft_printf("Error\n"), 0);
 	nb_param = 0;
 	error = 0;
-	args_split = ft_join_split(argc, argv, &error, &nb_param);
+	// A modifier !
+	flag = ft_check_flags(argv[1], argv[2]);
+	args_split = ft_join_split(argc + flag - 4, argv, &error, &nb_param);
 	if (!args_split || error)
 	{
 		ft_free_split(args_split);
@@ -97,7 +100,8 @@ int	main(int argc, char **argv)
 	ft_free_split(args_split);
 	if (error == 1 || !stack_a || ft_dupli(stack_a, nb_param))
 		return (free(stack_a), ft_printf("Error\n"), 0);
-	ft_push_swap(&stack_a, nb_param, argv[1]);
+	ft_push_swap(&stack_a, nb_param);
+	// Jusqu'ici !
 	free(stack_a);
 	return (0);
 }
