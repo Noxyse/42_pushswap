@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:23:21 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/15 16:24:01 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:26:52 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,20 @@ void	sb(t_stack *stack_b, t_bench *bench)
 
 void	ss(t_stack *stack_a, t_stack *stack_b, t_bench *bench)
 {
-	sa(stack_a);
-	sb(stack_b);
+	void	*tmp;
+
+	if (stack_a && stack_a->head)
+	{
+		tmp = stack_a->head->content;
+		stack_a->head->content = stack_a->head->next->content;
+		stack_a->head->next->content = tmp;
+	}
+	if (stack_b && stack_b->head)
+	{
+		tmp = stack_b->head->content;
+		stack_b->head->content = stack_b->head->next->content;
+		stack_b->head->next->content = tmp;
+	}
 	if (bench)
 		bench_count_op(bench, "ss");
 	ft_printf("ss\n");
