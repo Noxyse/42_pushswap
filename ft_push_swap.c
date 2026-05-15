@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:48:04 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/15 16:54:24 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 17:03:35 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_check_flags(char *flags)
 	if (ft_strcmp(flags, "--adaptive") == 0)
 		return (0);
 	if (ft_strcmp(flags, "--bench") == 0)
-		bench_mode();
+		return (4);
 	else if (ft_strcmp(flags, "--simple") == 0)
 		return (1);
 	else if (ft_strcmp(flags, "--medium") == 0)
@@ -109,6 +109,7 @@ void	*ft_push_swap(int **stack_a, int nb_param, char *flags, t_bench *bench)
 	ft_fill_stack(tab_a, nb_param, a);
 	ft_value_to_index(a);
 	res_flags = ft_check_flags(flags);
+	bench = (NULL);
 	if (res_flags == 0)
 		ft_compute_disorder(*stack_a, nb_param);
 	else if (res_flags == 1 || ft_compute_disorder(*stack_a, nb_param) == 1)
