@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 13:28:15 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/15 16:37:18 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:41:00 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ void	ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b, t_bench *bench)
 		cost_a++;
 		cost_b++;
 	}
-	ft_ra_rb(a, b, cost_a, cost_b);
+	ft_ra_rb(a, b, cost_a, cost_b, bench);
 	pa(a, b, bench);
 }

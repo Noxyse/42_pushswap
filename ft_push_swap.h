@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/15 16:28:09 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:42:18 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,13 @@ int			*ft_parse_to_int(char **s_str, int size, int *error);
 // ------- ALGOS ------- //
 
 // ------- SIMPLE ------- //
-void		ft_simple_algo(t_stack *a, t_stack *b);
-void		ft_sort_three_node(t_stack *a);
+void		ft_simple_algo(t_stack *a, t_stack *b, t_bench *bench);
+void		ft_sort_three_node(t_stack *a, t_bench *bench);
 int			ft_find_min_pos(t_stack *a);
 
 
 // ------- MEDIUM ------- //
-void		ft_medium_algo(t_stack *stack_a, t_stack *stack_b);
+void		ft_medium_algo(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 int			find_max_pos(t_stack *b);
 // static void	sort_chunks(t_stack *a, t_stack *b, int chunk_min, int chunk_max);
 // static int	which_half(t_stack *a, int chunk_min, int chunk_max);
@@ -118,13 +118,13 @@ int			find_max_pos(t_stack *b);
 // static int	ft_sqrt(int n);
 
 // ------- COMPLEX ------- //
-void		ft_complex_algo(t_stack *a, t_stack *b);
-void		ft_min_a_to_top(t_stack *a);
+void		ft_complex_algo(t_stack *a, t_stack *b, t_bench *bench);
+void		ft_min_a_to_top(t_stack *a, t_bench *bench);
 void		ft_update_pos(t_stack *stack);
 void		ft_find_target_node(t_stack *a, t_stack *b);
 void		ft_calculate_cost(t_stack *a, t_stack *b);
-void		ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b);
-void		ft_ra_rb(t_stack *a, t_stack *b, int cost_a, int cost_b);
+void		ft_move_b_to_a(t_node *best, t_stack *a, t_stack *b, t_bench *bench);
+void		ft_ra_rb(t_stack *a, t_stack *b, int cost_a, int cost_b, t_bench *bench);
 t_node		*ft_find_min_node(t_stack *stack);
 t_node		*ft_find_best_path(t_stack *b);
 int			ft_abs(int n);

@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 11:36:31 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/15 16:17:09 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:55:25 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,9 @@ void	bench_count_op(t_bench *bench, char *op)
 int	total_op()
 {
 	
+}
+
+void	bench_mode(int flags)
+{
+	bench_init();
 }

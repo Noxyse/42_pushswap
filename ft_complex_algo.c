@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 16:17:39 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/15 16:36:18 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:42:52 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_complex_algo(t_stack *a, t_stack *b, t_bench *bench)
 
 	while (a->size > 3)
 		pb(a, b, bench);
-	ft_sort_three_node(a);
+	ft_sort_three_node(a, bench);
 	while (b->size > 0)
 	{
 		ft_update_pos(a);
