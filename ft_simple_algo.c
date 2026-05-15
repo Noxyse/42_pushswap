@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 11:13:47 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/02 17:29:45 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:32:18 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_find_min_pos(t_stack *a)
 	return (min_pos);
 }
 
-void	ft_sort_three_node(t_stack *a)
+void	ft_sort_three_node(t_stack *a, t_bench *bench)
 {
 	int	first;
 	int	second;
@@ -50,24 +50,24 @@ void	ft_sort_three_node(t_stack *a)
 	second = ((t_data *)(a->head->next->content))->value;
 	third = ((t_data *)(a->head->next->next->content))->value;
 	if (first > second && second < third && first < third)
-		sa(a);
+		sa(a, bench);
 	else if (first > second && second > third && first > third)
 	{
-		sa(a);
-		rra(a);
+		sa(a, bench);
+		rra(a, bench);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		ra(a, bench);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		sa(a, bench);
+		ra(a, bench);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		rra(a, bench);
 }
 
-void	ft_simple_algo(t_stack *a, t_stack *b)
+void	ft_simple_algo(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	min_pos;
 
@@ -77,14 +77,14 @@ void	ft_simple_algo(t_stack *a, t_stack *b)
 		while (min_pos != 0)
 		{
 			if (min_pos <= a->size / 2)
-				ra(a);
+				ra(a, bench);
 			else
-				rra(a);
+				rra(a, bench);
 			min_pos = ft_find_min_pos(a);
 		}
-		pb(a, b);
+		pb(a, b, bench);
 	}
 	ft_sort_three_node(a);
 	while (b->size > 0)
-		pa(a, b);
+		pa(a, b, bench);
 }

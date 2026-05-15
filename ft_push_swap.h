@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 14:07:38 by mgedeon           #+#    #+#             */
-/*   Updated: 2026/05/15 15:54:37 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:28:09 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,21 +66,21 @@ void		*ft_calloc(size_t nmemb, size_t size);
 // ------- RULES ------- //
 
 // ------- SWAP ------- //
-void		sa(t_stack *stack_a);
-void		sb(t_stack *stack_b);
-void		ss(t_stack *stack_a, t_stack *stack_b);
+void		sa(t_stack *stack_a, t_bench *bench);
+void		sb(t_stack *stack_b, t_bench *bench);
+void		ss(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 
 // ------- PUSH ------- //
-void		pa(t_stack *stack_a, t_stack *stack_b);
-void		pb(t_stack *stack_a, t_stack *stack_b);
+void		pa(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
+void		pb(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 
 // ------- ROTATE ------- //
-void		ra(t_stack *stack_a);
-void		rb(t_stack *stack_b);
-void		rr(t_stack *stack_a, t_stack *stack_b);
-void		rra(t_stack *stack_a);
-void		rrb(t_stack *stack_b);
-void		rrr(t_stack *stack_a, t_stack *stack_b);
+void		ra(t_stack *stack_a, t_bench *bench);
+void		rb(t_stack *stack_b, t_bench *bench);
+void		rr(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
+void		rra(t_stack *stack_a, t_bench *bench);
+void		rrb(t_stack *stack_b, t_bench *bench);
+void		rrr(t_stack *stack_a, t_stack *stack_b, t_bench *bench);
 
 // ------- STACK MANIPULATION ------- //
 

@@ -6,7 +6,7 @@
 /*   By: mgedeon <mgedeon@student.42belgium.be>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 16:17:39 by celgremy          #+#    #+#             */
-/*   Updated: 2026/05/12 14:40:04 by mgedeon          ###   ########.fr       */
+/*   Updated: 2026/05/15 16:36:18 by mgedeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_update_pos(t_stack *stack)
 	}
 }
 
-void	ft_min_a_to_top(t_stack *a)
+void	ft_min_a_to_top(t_stack *a, t_bench *bench)
 {
 	t_node	*min;
 
@@ -90,19 +90,19 @@ void	ft_min_a_to_top(t_stack *a)
 	while (a->head != min)
 	{
 		if (((t_data *)min->content)->pos <= a->size / 2)
-			ra(a);
+			ra(a, bench);
 		else
-			rra(a);
+			rra(a, bench);
 		ft_update_pos(a);
 	}
 }
 
-void	ft_complex_algo(t_stack *a, t_stack *b)
+void	ft_complex_algo(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_node	*best;
 
 	while (a->size > 3)
-		pb(a, b);
+		pb(a, b, bench);
 	ft_sort_three_node(a);
 	while (b->size > 0)
 	{
@@ -113,5 +113,5 @@ void	ft_complex_algo(t_stack *a, t_stack *b)
 		best = ft_find_best_path(b);
 		ft_move_b_to_a(best, a, b);
 	}
-	ft_min_a_to_top(a);
+	ft_min_a_to_top(a, bench);
 }
